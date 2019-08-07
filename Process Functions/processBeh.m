@@ -25,6 +25,7 @@ for n = 1:nAcq
     minRest = params.beh.minRestTime * Fs; minRun = params.beh.minRunTime * Fs;
     [onsets,offsets] = getOnsetOffset(vel,velThres,minRest,minRun,finalOnset);
     data.final(n).vel = vel;
+    data.final(n).time = [1/Fs:1/Fs:length(vel)/Fs]';
     data.final(n).beh.onsets = onsets;
     data.final(n).beh.offsets = offsets;
 end
