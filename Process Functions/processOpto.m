@@ -36,14 +36,14 @@ for n = 1:length(data.acq)
     %pulseOnset  = pulseOnset/optoFs;  %pulse onset in seconds
     %pulseOffset = pulseOffset/optoFs; %pulse offset in seconds
 
-    if isfield(params.opto,'stimtype')
-        switch params.opto.stimtype
-            case 'excitation'
-                %excitatory optostim protocol: 5Hz, 5sec = 25 pulses per pattern repeat
-                pulseOnset = pulseOnset(:,1:25:end) + 1; %extract every 25th value starting from 1st
-                pulseOffset = pulseOffset(:,25:25:end); %extract every 25th value starting from 25th
-        end
-    end
+    %if isfield(params.opto,'stimtype')
+    %    switch params.opto.stimtype
+    %        case 'excitation'
+    %            %excitatory optostim protocol: 5Hz, 5sec = 25 pulses per pattern repeat
+    %            pulseOnset = pulseOnset(:,1:25:end) + 1; %extract every 25th value starting from 1st
+    %            pulseOffset = pulseOffset(:,25:25:end); %extract every 25th value starting from 25th
+    %    end
+    %end
 
 data.opto(n).on  = pulseOnset;
 data.opto(n).off = pulseOffset;
